@@ -7,6 +7,7 @@ class HomePage:
 
     URL = 'https://www.saucedemo.com/inventory.html'
     BUTTON_ADD_TO_CART = Target.the("add to cart").located_by((By.ID,"add-to-cart-sauce-labs-backpack"))
+    BUTTON_REMOVE_TO_CART = Target.the("remove to cart").located_by((By.ID,"remove-sauce-labs-backpack"))
     SELECT_FILTER = Target.the('filter button').located_by((By.XPATH,"//select[@class='product_sort_container']"))
     # SELECT_FILTER = Target.the('filter button').located_by((By.CLASS_NAME,"product_sort_container"))
     CART = Target.the('cart').located_by((By.ID,'shopping_cart_container'))
