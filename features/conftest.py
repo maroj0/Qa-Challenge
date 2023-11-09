@@ -62,3 +62,9 @@ def fixture_actor() -> Generator:
     the_actor = Actor.named("Dev").who_can(BrowseTheWeb.using_chrome())
     yield the_actor
     the_actor.exit_stage_left()
+
+@pytest.fixture(scope="function", name="Prod")
+def fixture_prod_actor() -> Generator:
+    the_actor = Actor.named("Prod").who_can(BrowseTheWeb.using_chrome())
+    yield the_actor
+    the_actor.exit_stage_left()

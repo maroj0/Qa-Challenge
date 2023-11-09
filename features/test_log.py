@@ -11,8 +11,6 @@ from screens.login import LoginPage
 from tasks.login_task import LogIn
 from questions.SearchLogInResult import SearchLogInResult
 
-
-
 @act("Search")
 @scene("Navigate to log in")
 def test_search_log_in(Dev: Actor) -> None:
