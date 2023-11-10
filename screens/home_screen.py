@@ -8,6 +8,7 @@ class HomePage:
 
     URL = 'https://www.saucedemo.com/inventory.html'
     BUTTON_ADD_TO_CART = Target.the("add to cart").located_by((By.ID,"add-to-cart-sauce-labs-backpack"))
+    BUTTON_ADD_TO_CART_SECOND = Target.the("add to cart").located_by((By.ID,"add-to-cart-sauce-labs-bike-light"))
     BUTTON_REMOVE_TO_CART = Target.the("remove to cart").located_by((By.ID,"remove-sauce-labs-backpack"))
     SELECT_FILTER = Target.the('filter button').located_by((By.XPATH,"//select[@class='product_sort_container']"))
     # VALUE_LESS = Select(SELECT_FILTER)   
