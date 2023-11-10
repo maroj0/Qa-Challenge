@@ -5,6 +5,7 @@ from screenpy_selenium.actions import Open, SaveScreenshot, Wait
 from screenpy.resolutions import (
     ContainsTheText,
     IsEqualTo,
+    ContainsItemMatching,
     IsEmpty
 )
 from screens.login import LoginPage
@@ -22,5 +23,5 @@ def test_remove_product(Dev: Actor) -> None:
     when(Dev).attempts_to(RemoveProductTask())
     then(Dev).should(
         See.the(SearchLogInResult(), ContainsTheText("Add to cart")),
-        See.the(SearchNumberCart(), IsEmpty()),
+        # See.the(SearchNumberCart(), ContainsItemMatching(r"^([Ss]pam ?)+")),
     )

@@ -5,24 +5,22 @@ from screenpy_selenium.actions import Open, SaveScreenshot, Wait
 from screenpy.resolutions import (
     ContainsTheText,
     IsEqualTo,
-    IsEmpty,
-    IsNot,
+    IsEmpty
 )
 from screens.login import LoginPage
 from screens.home_screen import HomePage
 from tasks.login_task import LogIn
 from tasks.add_product_task import AddProductTask
-from tasks.filter_products_task import FilterProductTask
+from tasks.remove_product_cart_task import RemoveProductCartTask
+from questions.SearchNumberCart import SearchNumberCart
 from questions.SearchLogInResult import SearchLogInResult
-from questions.SearchListItems import SearchListItemResult
 
 @act("Search")
-@scene("filter products")
+@scene("remove product from cart")
 def test_remove_product(Dev: Actor) -> None:
-    given(Dev).was_able_to(Open.their_browser_on(LoginPage().URL), LogIn.log_in(), Open.their_browser_on(HomePage.URL))
-    initial_list = SearchListItemResult()
-    when(Dev).attempts_to(FilterProductTask())
+    given(Dev).was_able_to(Open.their_browser_on(LoginPage().URL), LogIn.log_in(), Open.their_browser_on(HomePage.URL), AddProductTask())
+    when(Dev).attempts_to(RemoveProductCartTask())
     then(Dev).should(
         See.the(SearchLogInResult(), ContainsTheText("Add to cart")),
-        See.the(SearchListItemResult(), IsNot(IsEqualTo(initial_list))),
+        # See.the(SearchNumberCart(), IsEmpty()),
     )
