@@ -9,15 +9,15 @@ from screenpy.resolutions import (
 from screens.login import LoginPage
 from screens.home_screen import HomePage
 from tasks.login_task import LogIn
-from tasks.add_product_task import AddProductTask
+from screens.checkout_screen import CheckoutPage
 from tasks.complete_checkout_form_task import CompleteCheckoutForm
-from questions.SearchCheckoutForm import SearchCheckoutForm
+from questions.SearchText import SearchText
 
 @act("Buy")
 @scene("Complete first form")
 def test_add_product(Dev: Actor) -> None:
-    given(Dev).was_able_to(Open.their_browser_on(LoginPage().URL), LogIn.log_in(), Open.their_browser_on(HomePage.URL),AddProductTask())
+    given(Dev).was_able_to(Open.their_browser_on(LoginPage().URL), LogIn.log_in(), Open.their_browser_on(HomePage.URL))
     when(Dev).attempts_to(CompleteCheckoutForm())
     then(Dev).should(
-        See.the(SearchCheckoutForm(), ContainsTheText("Total")),
+        See.the(SearchText(CheckoutPage.ERROR), ContainsTheText("Error")),
     )

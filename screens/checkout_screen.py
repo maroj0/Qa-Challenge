@@ -12,3 +12,4 @@ class CheckoutPage:
     LAST_NAME_INPUT=Target.the("last name").located_by((By.ID,"last-name"))
     ZIP_INPUT=Target.the("zip code").located_by((By.ID, 'postal-code'))
     CHECK = Target.the("check next screene").located_by((By.XPATH, "//div[@class='summary_info_label summary_total_label']"))
+    ERROR = Target.the("show error").located_by((By.XPATH, "//div[@class='error-message-container error']"))
