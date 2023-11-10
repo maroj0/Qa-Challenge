@@ -16,7 +16,6 @@ from tasks.remove_product_cart_task import RemoveProductCartTask
 from questions.SearchNumberCart import SearchNumberCart
 from questions.SearchLogInResult import SearchLogInResult
 from questions.SearchCartList import SearchCartList
-from screenpy_selenium.questions import WebElement
 
 @act("Search")
 @scene("remove product from cart")
